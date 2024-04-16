@@ -10,7 +10,7 @@ public class FuncionamientoAplicacion {
         do {
             System.out.println("Bienvenido a InstaDAM!");
             System.out.println("1. Registrarse \n2.Iniciar Sesión  \n3. Ver publicaciones \n0. Salir");
-            System.out.println("Indique lo que quiere hacer");
+            System.out.println("Indique lo que quieres hacer");
             opcion = sc.nextInt();
             switch (opcion){
                 case 1:
@@ -27,6 +27,10 @@ public class FuncionamientoAplicacion {
                     break;
                 default:
                     System.out.println("Lo que has introducido no existe");
+            }if (ou.usuarioActivoAhora()){
+                do {
+                    opcionesUsuario();
+                }while (ou.cerrarSesion();)
             }
 
         }while (opcion != 0);
@@ -59,6 +63,25 @@ public class FuncionamientoAplicacion {
         String descripcion = sc.nextLine();
         pu.publicarMensaje(descripcion,ou.obtenerUsuarioActual());
     }
-
+    public void opcionesUsuario(){
+        System.out.println("Bienvenido "+ou.obtenerUsuarioActual().getNombreUsuario());
+        System.out.println("1. Ver Publicaciones \n2. Publicar mensaje \n3. Cerrar sesión");
+        System.out.println("Indica lo que quieres hacer: ");
+        opcion = sc.nextInt();
+        switch (opcion){
+            case 1:
+                mostrarPublicaciones();
+                break;
+            case 2:
+                publicarMensaje();
+                break;
+            case 3:
+                ou.cerrarSesion();
+                break;
+            default:
+                System.out.println("No hay ninguna opcion para el numero escogido");
+                break;
+        }
+    }
 }
 
