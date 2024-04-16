@@ -57,7 +57,7 @@ public class FuncionamientoAplicacion {
     public void publicarMensaje(){
         System.out.println("En que estás pensando?");
         String descripcion = sc.nextLine();
-        pu.publicarMensaje(descripcion, ou.);
+        pu.publicarMensaje(descripcion,ou.obtenerUsuarioActual());
     }
 
 }
