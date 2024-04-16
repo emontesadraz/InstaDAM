@@ -14,10 +14,10 @@ public class FuncionamientoAplicacion {
             opcion = sc.nextInt();
             switch (opcion){
                 case 1:
-                    ou.registrarUsuario();
+                   registrarUsuario();
                     break;
                 case 2:
-                    ou.iniciarSesion();
+                    iniciarSesion();
                     break;
                 case 3:
                     pu.verPublicaciones();
@@ -38,6 +38,14 @@ public class FuncionamientoAplicacion {
         System.out.println("Introduce tu contraseña: ");
         String contrasena = sc.next();
         ou.iniciarSesion(nombreUsuario,contrasena);
+    }
+    public void registrarUsuario(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce el nombre de tu usuario: ");
+        String nombreUsuario = sc.next();
+        System.out.println("Introduce tu contraseña: ");
+        String contrasena = sc.next();
+        ou.registrarUsuario(nombreUsuario,contrasena);
     }
 
 }
