@@ -5,22 +5,21 @@ import java.util.Scanner;
 public class OperacionesUsuarios extends Usuarios {
     Scanner sc = new Scanner(System.in);
     private List<Usuarios> usuariosRegistrados = new ArrayList<>();
+    private Usuarios usuarioActivo = null;
 
 
-    public void registrarUsuario() {
-        System.out.println("Introduce tu usuario: ");
-        setNombreUsuario(sc.next());
-        System.out.println("Introduce tu contraseña: ");
-        setContrasena(sc.next());
-        usuariosRegistrados.add(new Usuarios(getNombreUsuario(), getContrasena()));
-        System.out.println("Usuario registrado exitosamente, bienvenido " + getNombreUsuario());
+    public void registrarUsuario(String nombreUsuario, String contrasena ) {
+        for (Usuarios usuarios : usuariosRegistrados) {
+            if (usuarioActivo.getNombreUsuario().equals(nombreUsuario)) {
+                System.out.println("Nombre de usuario ya escogido, por favor introduzca otro");
+            } else {
+                usuariosRegistrados.add(new Usuarios(getNombreUsuario(), getContrasena()));
+                System.out.println("Usuario registrado exitosamente, bienvenido @" + getNombreUsuario());
+            }
+        }
     }
 
-    public boolean iniciarSesion() {
-        System.out.println("Introduce tu usuario: ");
-        String nombreUsuario = sc.next();
-        System.out.println("Introduce tu contraseña: ");
-        String contrasena = sc.next();
+    public boolean iniciarSesion(String nombreUsuario, String contrasena) {
         for (Usuarios usuarios : usuariosRegistrados) {
             if (usuarios.getNombreUsuario().equals(nombreUsuario) && usuarios.getContrasena().equals(contrasena)) {
                 System.out.println("Inicio de sesión exitoso para el usuario: " + nombreUsuario);

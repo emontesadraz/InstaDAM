@@ -22,17 +22,12 @@ public class Usuarios {
         return nombreUsuario;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
-    }
+
 
     public String getContrasena() {
         return contrasena;
     }
 
-    public void setContrasena(String contraseña) {
-        this.contrasena = contrasena;
-    }
 
     @Override
     public String toString() {

@@ -20,17 +20,12 @@ public class Publicaciones{
         return descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
+
 
     public String getNombreUsuario() {
         return nombreUsuario;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
-    }
 
     @Override
     public String toString() {
