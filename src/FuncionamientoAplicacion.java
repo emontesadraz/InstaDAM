@@ -47,6 +47,18 @@ public class FuncionamientoAplicacion {
         String contrasena = sc.next();
         ou.registrarUsuario(nombreUsuario,contrasena);
     }
+    public void mostrarPublicaciones(){
+        if (!pu.sinPublicaciones()){
+            pu.verPublicaciones();
+        }else{
+            System.out.println("Aún no hay publicaciones!");
+        }
+    }
+    public void publicarMensaje(){
+        System.out.println("En que estás pensando?");
+        String descripcion = sc.nextLine();
+        pu.publicarMensaje(descripcion, ou.);
+    }
 
 }
 

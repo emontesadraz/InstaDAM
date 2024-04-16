@@ -34,13 +34,10 @@ public class Publicaciones{
                 ", nombreUsuario='" + nombreUsuario + '\'' +
                 '}';
     }
-    public void publicarMensaje() {
-        Usuarios usuarios = new Usuarios();
-        System.out.println("En que estás pensando?");
-        String mensaje = sc.nextLine();
+    public void publicarMensaje(String mensaje, Usuarios usuarios) {
         Publicaciones publicaciones = new Publicaciones(getNombreUsuario(), mensaje);
         publicacion.add(publicaciones);
-        System.out.println("Mensaje publicado por el usuario " + getNombreUsuario() + ": " + mensaje);
+        System.out.println("Mensaje publicado por " + getNombreUsuario() + ": " + mensaje);
     }
 
     public void verPublicaciones() {
@@ -48,5 +45,7 @@ public class Publicaciones{
             System.out.println(publicaciones.getNombreUsuario() + ": " + publicaciones.getDescripcion());
         }
     }
-
+    public boolean sinPublicaciones(){
+        return publicacion.isEmpty();
+    }
 }

@@ -9,14 +9,13 @@ public class OperacionesUsuarios extends Usuarios {
 
 
     public void registrarUsuario(String nombreUsuario, String contrasena ) {
-        for (Usuarios usuarios : usuariosRegistrados) {
-            if (usuarioActivo.getNombreUsuario().equals(nombreUsuario)) {
-                System.out.println("Nombre de usuario ya escogido, por favor introduzca otro");
-            } else {
-                usuariosRegistrados.add(new Usuarios(getNombreUsuario(), getContrasena()));
-                System.out.println("Usuario registrado exitosamente, bienvenido @" + getNombreUsuario());
-            }
+        if (!usuarioEscogido(nombreUsuario)) {
+            System.out.println("Nombre de usuario ya escogido, por favor introduzca otro");
+        } else {
+            usuariosRegistrados.add(new Usuarios(getNombreUsuario(), getContrasena()));
+            System.out.println("Usuario registrado exitosamente, bienvenido @" + getNombreUsuario());
         }
+
     }
 
     public boolean iniciarSesion(String nombreUsuario, String contrasena) {
@@ -30,8 +29,25 @@ public class OperacionesUsuarios extends Usuarios {
         return false;
 
     }
+    public void cerrarSesion(){
+        usuarioActivo = null;
+    }
+    public boolean usuarioActivoAhora(){
+        return usuarioActivo != null;
+    }
 
-
+    public Usuarios obtenerUsuarioActual(){
+        return usuarioActivo;
+    }
+    public boolean usuarioEscogido(String nombreUsuario){
+        for (Usuarios usuarios : usuariosRegistrados){
+            if (usuarios.getNombreUsuario().equals(nombreUsuario)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
 
 
