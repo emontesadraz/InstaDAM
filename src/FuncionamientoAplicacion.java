@@ -30,9 +30,8 @@ public class FuncionamientoAplicacion {
             }if (ou.usuarioActivoAhora()){
                 do {
                     opcionesUsuario();
-                }while (ou.cerrarSesion();)
+                }while (ou.usuarioActivoAhora());
             }
-
         }while (opcion != 0);
     }
     public void iniciarSesion(){
