@@ -2,7 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Publicaciones{
+public class Publicaciones {
+    OperacionesUsuarios ou = new OperacionesUsuarios();
     Scanner sc = new Scanner(System.in);
     private String descripcion;
     private String nombreUsuario;
@@ -35,14 +36,14 @@ public class Publicaciones{
                 '}';
     }
     public void publicarMensaje(String mensaje, Usuarios usuarios) {
-        Publicaciones publicaciones = new Publicaciones(getNombreUsuario(), mensaje);
+        Publicaciones publicaciones = new Publicaciones(mensaje, usuarios.getNombreUsuario());
         publicacion.add(publicaciones);
-        System.out.println("Mensaje publicado por " + getNombreUsuario() + ": " + mensaje);
+        System.out.println("Mensaje publicado por " + usuarios.getNombreUsuario() + ": " + mensaje);
     }
 
     public void verPublicaciones() {
         for (Publicaciones publicaciones : publicacion) {
-            System.out.println(publicaciones.getNombreUsuario() + ": " + publicaciones.getDescripcion());
+            System.out.println(publicaciones.getNombreUsuario()+ ": " + publicaciones.getDescripcion());
         }
     }
     public boolean sinPublicaciones(){

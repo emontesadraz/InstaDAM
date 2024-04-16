@@ -1,3 +1,5 @@
+import javax.sound.sampled.Line;
+import javax.swing.*;
 import java.util.Scanner;
 
 public class FuncionamientoAplicacion {
@@ -9,7 +11,7 @@ public class FuncionamientoAplicacion {
 
         do {
             System.out.println("Bienvenido a InstaDAM!");
-            System.out.println("1. Registrarse \n2.Iniciar Sesión  \n3. Ver publicaciones \n0. Salir");
+            System.out.println("1. Registrarse \n2. Iniciar Sesión  \n3. Ver publicaciones \n0. Salir");
             System.out.println("Indique lo que quieres hacer");
             opcion = sc.nextInt();
             switch (opcion){
@@ -20,7 +22,7 @@ public class FuncionamientoAplicacion {
                     iniciarSesion();
                     break;
                 case 3:
-                    pu.verPublicaciones();
+                    mostrarPublicaciones();
                     break;
                 case 0:
                     System.out.println("Hasta luego!!");
@@ -58,8 +60,7 @@ public class FuncionamientoAplicacion {
         }
     }
     public void publicarMensaje(){
-        System.out.println("En que estás pensando?");
-        String descripcion = sc.nextLine();
+        String descripcion = JOptionPane.showInputDialog("En que estás pensando?");
         pu.publicarMensaje(descripcion,ou.obtenerUsuarioActual());
     }
     public void opcionesUsuario(){
